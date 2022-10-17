@@ -1,0 +1,61 @@
+cabal-version: 2.4
+name:          kvstore-effectful
+version:       0.0.1.0
+license:       BSD-3-Clause
+license-files: LICENSE
+author:        Paweł Szulc, Łukasz Gołębiewski
+maintainer:    Paweł Szulc <paul.szulc@gmail.com>, Łukasz Gołębiewski <lukasz.golebiewski@gmail.com>
+
+common globals
+  default-language:   GHC2021
+  default-extensions:
+    AllowAmbiguousTypes
+    DataKinds
+    DeriveGeneric
+    DerivingStrategies
+    DerivingVia
+    LambdaCase
+    ScopedTypeVariables
+    StandaloneDeriving
+    TypeFamilies
+
+  ghc-options:
+    -Wall -Werror -Wcompat -fwarn-redundant-constraints
+    -fwarn-incomplete-uni-patterns -fwarn-tabs
+    -fwarn-incomplete-record-updates -fwarn-identities
+    -Wmissing-export-lists -Wmissing-deriving-strategies
+    -Wmissing-kind-signatures
+
+common executable
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+
+library
+  import:          globals
+  exposed-modules:
+    -- Effectful.KVStore
+    -- Effectful.KVStore.StateMap
+
+  build-depends:
+    , base               >=4.9 && <5
+    , effectful
+
+  hs-source-dirs:  src
+
+test-suite spec
+  import:         globals
+  import:         executable
+  type:           exitcode-stdio-1.0
+  main-is:        Spec.hs
+  build-depends:
+    , base                 >=4.9 && <5
+    , effectful
+    , effectful-core
+    , hedgehog
+    , tasty
+    , tasty-hedgehog
+
+  other-modules:
+    -- Test.Effectful.KVStore
+    -- Test.Effectful.KVStore.StateMap
+
+  hs-source-dirs: test
