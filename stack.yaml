@@ -1,0 +1,11 @@
+resolver: nightly-2022-06-06
+packages:
+- .
+
+extra-deps:
+- git: https://github.com/haskell-effectful/effectful
+  commit: f95b08cd3f33695c0ddef2db61f009a0c6a8e7aa
+  subdirs:
+  - effectful-core
+  - effectful-th
+  - effectful
