@@ -25,6 +25,7 @@
                 }];
                 shell.buildInputs = with pkgs; [
                   cabal-install
+                  haskellPackages.cabal-fmt
                   ghcid
                   hlint
                   nixpkgs-fmt
