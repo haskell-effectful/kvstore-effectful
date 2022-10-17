@@ -32,8 +32,7 @@ common executable
 library
   import:          globals
   exposed-modules:
-    -- Effectful.KVStore
-    -- Effectful.KVStore.StateMap
+    Effectful.KVStore
 
   build-depends:
     , base               >=4.9 && <5
@@ -51,11 +50,12 @@ test-suite spec
     , effectful
     , effectful-core
     , hedgehog
+    , kvstore-effectful
     , tasty
     , tasty-hedgehog
+    , transformers
 
   other-modules:
-    -- Test.Effectful.KVStore
-    -- Test.Effectful.KVStore.StateMap
+    Test.Effectful.KVStore
 
   hs-source-dirs: test
