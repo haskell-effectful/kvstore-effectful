@@ -11,12 +11,8 @@ common globals
   default-extensions:
     AllowAmbiguousTypes
     DataKinds
-    DeriveGeneric
-    DerivingStrategies
-    DerivingVia
     LambdaCase
     ScopedTypeVariables
-    StandaloneDeriving
     TypeFamilies
 
   ghc-options:
