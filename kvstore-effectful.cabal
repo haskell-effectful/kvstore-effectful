@@ -4,19 +4,16 @@ version:       0.0.1.0
 license:       BSD-3-Clause
 license-files: LICENSE
 author:        Paweł Szulc, Łukasz Gołębiewski
-maintainer:    Paweł Szulc <paul.szulc@gmail.com>, Łukasz Gołębiewski <lukasz.golebiewski@gmail.com>
+maintainer:
+  Paweł Szulc <paul.szulc@gmail.com>, Łukasz Gołębiewski <lukasz.golebiewski@gmail.com>
 
 common globals
   default-language:   GHC2021
   default-extensions:
     AllowAmbiguousTypes
     DataKinds
-    DeriveGeneric
-    DerivingStrategies
-    DerivingVia
     LambdaCase
     ScopedTypeVariables
-    StandaloneDeriving
     TypeFamilies
 
   ghc-options:
@@ -31,11 +28,9 @@ common executable
 
 library
   import:          globals
-  exposed-modules:
-    Effectful.KVStore
-
+  exposed-modules: Effectful.KVStore
   build-depends:
-    , base               >=4.9 && <5
+    , base       >=4.9 && <5
     , effectful
 
   hs-source-dirs:  src
@@ -46,7 +41,7 @@ test-suite spec
   type:           exitcode-stdio-1.0
   main-is:        Spec.hs
   build-depends:
-    , base                 >=4.9 && <5
+    , base               >=4.9 && <5
     , effectful
     , effectful-core
     , hedgehog
@@ -55,7 +50,5 @@ test-suite spec
     , tasty-hedgehog
     , transformers
 
-  other-modules:
-    Test.Effectful.KVStore
-
+  other-modules:  Test.Effectful.KVStore
   hs-source-dirs: test
