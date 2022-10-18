@@ -4,12 +4,10 @@ module Test.Effectful.KVStore.StateMap
   ) where
 
 import Data.Kind
-import Data.Map                   (Map)
 import Data.Map                   qualified as Map
 import Effectful
 import Effectful.KVStore
 import Effectful.KVStore.StateMap
-import Effectful.State.Dynamic    as State
 import Hedgehog.Gen               qualified as Gen
 import Hedgehog.Range             qualified as Range
 import Test.Effectful.KVStore     (kvStoreTests)
@@ -27,6 +25,6 @@ tests =
 
 createStateMapKVStoreInterpreter ::
      forall (k :: Type) v a . (Ord k)
-  => IO ( Eff '[KVStore k v, State (Map k v), IOE] a -> IO a)
+  => IO ( Eff '[KVStore k v, IOE] a -> IO a)
 createStateMapKVStoreInterpreter =
-  pure $ runEff . evalStateLocal (Map.empty @k @v) . runKVStoreWithStateMap
+  pure $ runEff . runKVStoreWithStateMap (Map.empty @k @v)
