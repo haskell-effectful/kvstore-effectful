@@ -37,7 +37,6 @@
         pkgs = import nixpkgs { inherit system overlays; inherit (haskellNix) config; };
         flake = pkgs.kvstore-effectful.flake { };
       in
-      flake // {
-        defaultPackage = flake.packages."kvstore-effectful:lib:kvstore-effectful";
-      });
+      flake
+    );
 }

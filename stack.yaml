@@ -1,6 +1,6 @@
 resolver: nightly-2022-06-06
 packages:
-- .
+- kvstore-effectful
 
 extra-deps:
 - git: https://github.com/haskell-effectful/effectful
