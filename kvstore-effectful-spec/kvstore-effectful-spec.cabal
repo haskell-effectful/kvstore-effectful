@@ -1,5 +1,5 @@
 cabal-version: 2.4
-name:          kvstore-effectful
+name:          kvstore-effectful-spec
 version:       0.0.1.0
 license:       BSD-3-Clause
 license-files: LICENSE
@@ -26,11 +26,17 @@ common globals
 library
   import:          globals
   exposed-modules:
-    Effectful.KVStore
+    Test.Effectful.KVStore
 
   build-depends:
-    , base        >=4.9 && <5
+    , base               >=4.9 && <5
     , containers
     , effectful
+    , effectful-core
+    , hedgehog
+    , kvstore-effectful
+    , tasty
+    , tasty-hedgehog
+    , transformers
 
   hs-source-dirs:  src
