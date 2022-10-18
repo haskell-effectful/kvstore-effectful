@@ -1,5 +1,7 @@
 packages:
   kvstore-effectful/*.cabal
+  kvstore-effectful-spec/*.cabal
+  kvstore-effectful-statemap/*.cabal
 
 write-ghc-environment-files: never
 
