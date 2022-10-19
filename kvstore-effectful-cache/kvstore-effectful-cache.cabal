@@ -1,0 +1,65 @@
+cabal-version: 2.4
+name:          kvstore-effectful-cache
+version:       0.0.1.0
+license:       BSD-3-Clause
+license-files: LICENSE
+author:        Paweł Szulc, Łukasz Gołębiewski
+maintainer:
+  Paweł Szulc <paul.szulc@gmail.com>, Łukasz Gołębiewski <lukasz.golebiewski@gmail.com>
+
+common globals
+  default-language:   GHC2021
+  default-extensions:
+    AllowAmbiguousTypes
+    DataKinds
+    LambdaCase
+    ScopedTypeVariables
+    TypeFamilies
+
+  ghc-options:
+    -Wall -Werror -Wcompat -fwarn-redundant-constraints
+    -fwarn-incomplete-uni-patterns -fwarn-tabs
+    -fwarn-incomplete-record-updates -fwarn-identities
+    -Wmissing-export-lists -Wmissing-deriving-strategies
+    -Wmissing-kind-signatures
+
+common executable
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+
+library
+  import:          globals
+  exposed-modules: Effectful.KVStore.Cache
+  build-depends:
+    , base               >=4.9 && <5
+    , cache
+    , containers
+    , effectful
+    , effectful-cache
+    , hashable
+    , kvstore-effectful
+
+  hs-source-dirs:  src
+
+test-suite spec
+  import:         globals
+  import:         executable
+  type:           exitcode-stdio-1.0
+  main-is:        Spec.hs
+  build-depends:
+    , base                     >=4.9 && <5
+    , cache
+    , containers
+    , effectful
+    , effectful-cache
+    , effectful-core
+    , hashable
+    , hedgehog
+    , kvstore-effectful
+    , kvstore-effectful-cache
+    , kvstore-effectful-spec
+    , tasty
+    , tasty-hedgehog
+    , transformers
+
+  other-modules:  Test.Effectful.KVStore.Cache
+  hs-source-dirs: test
