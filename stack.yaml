@@ -3,6 +3,7 @@ packages:
 - kvstore-effectful
 - kvstore-effectful-spec
 - kvstore-effectful-statemap
+- kvstore-effectful-cache
 
 extra-deps:
 - git: https://github.com/haskell-effectful/effectful
@@ -11,3 +12,7 @@ extra-deps:
   - effectful-core
   - effectful-th
   - effectful
+
+- git: https://github.com/haskell-effectful/cache-effectful
+  commit: e9d2427bfbfa0ebc7a7b960b103354981d246379
+  # nix-sha256: 0gqvd3fmswraqi1gs8nrq7g68lsd69387japn3565mc09nr1qlfq
