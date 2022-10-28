@@ -17,9 +17,8 @@ jobs:
       with:
         name: kvstore-effectful
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - uses: HatsuneMiku3939/direnv-action@v1
     - run: nix build .#kvstore-effectful:lib:kvstore-effectful
     - run: nix build .#kvstore-effectful-spec:lib:kvstore-effectful-spec
     - run: nix build .#kvstore-effectful-statemap:lib:kvstore-effectful-statemap
     - run: nix build .#kvstore-effectful-cache:lib:kvstore-effectful-cache
-    - run: cabal test all
+    - run: nix develop --command cabal test all
